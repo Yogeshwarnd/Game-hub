@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="disclaimer-page" id="disclaimerPage">
+        <div class="disclaimer-card">
+            <h1>Disclaimer</h1>
+            <p>This game is meant for entertainment only.</p>
+            <p>Developer: Yogeshwar.</p>
+            <p>The developer is not responsible for any legal actions.</p>
+            <p>If you want any image/content removed, contact: <strong>yogeshwar.student@gmail.com</strong></p>
+            <button id="acceptDisclaimerBtn" class="btn btn-primary">I Understand, Continue</button>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <div class="score-display">
+            <span class="score-label">Score:</span>
+            <span class="score-value" id="score">0</span>
+        </div>
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+    </div>
+
+    <div class="modal" id="gameOverModal">
+        <div class="modal-content">
+            <h2>Game Over!</h2>
+            <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+
+            <div class="player-input">
+                <label for="playerName">Enter your name:</label>
+                <input type="text" id="playerName" placeholder="Your name here" maxlength="50">
+            </div>
+
+            <div class="modal-buttons">
+                <button id="saveScoreBtn" class="btn btn-primary">Save Score</button>
+                <button id="restartBtn" class="btn btn-secondary">Restart Game</button>
+            </div>
+
+            <div id="saveMessage" class="save-message"></div>
+
+            <div class="modal-leaderboard">
+                <h3>Top Scores</h3>
+                <div class="leaderboard">
+                    <div class="leaderboard-header">
+                        <span class="rank">Rank</span>
+                        <span class="name">Player</span>
+                        <span class="score-col">Score</span>
+                    </div>
+                    <div id="leaderboardList" class="leaderboard-list">
+                        <div class="loading">Loading...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

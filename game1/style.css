@@ -1,0 +1,378 @@
+:root {
+  --text: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: #05070d url("bg.jpg") center center / cover no-repeat fixed;
+}
+
+body {
+  position: relative;
+  touch-action: none;
+}
+
+.hud {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 12px;
+  background: rgba(31, 41, 55, 0.74);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.45);
+}
+
+.score-badge {
+  font-size: clamp(24px, 2.4vw, 42px);
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1;
+}
+
+#scoreValue {
+  color: #facc15;
+}
+
+#gameCanvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.score-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(5px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.score-card {
+  width: min(92vw, 620px);
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #f8fafc, #e2e8f0);
+  color: #1e293b;
+  padding: 26px 24px;
+  box-shadow: 0 18px 48px rgba(2, 6, 23, 0.5);
+}
+
+.score-card h2,
+.score-card h3 {
+  text-align: center;
+  margin: 0;
+}
+
+.score-card h2 {
+  font-size: clamp(32px, 4.5vw, 48px);
+}
+
+.score-card h3 {
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.final-score {
+  text-align: center;
+  font-size: clamp(18px, 2.3vw, 28px);
+  margin: 8px 0 18px;
+  font-weight: 700;
+}
+
+.score-card label {
+  display: block;
+  font-size: 21px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+#playerNameInput {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #94a3b8;
+  font-size: 20px;
+  padding: 12px 14px;
+  outline: none;
+}
+
+#playerNameInput:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+.score-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.score-actions button {
+  flex: 1;
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 12px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.score-actions button.secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+  border: 1px solid #64748b;
+}
+
+.save-message {
+  min-height: 28px;
+  margin: 14px 0 12px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.score-list-wrap {
+  border-top: 1px solid #cbd5e1;
+  padding-top: 18px;
+}
+
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.score-table thead {
+  background: #1f2937;
+  color: #f8fafc;
+}
+
+.score-table th,
+.score-table td {
+  padding: 12px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.score-table tbody tr:nth-child(odd) {
+  background: #fef3c7;
+}
+
+.score-table tbody tr:nth-child(even) {
+  background: #fde68a;
+}
+
+@media (max-width: 640px) {
+  .score-card {
+    padding: 20px 16px;
+  }
+
+  .score-card label,
+  .score-actions button,
+  #playerNameInput,
+  .score-table th,
+  .score-table td {
+    font-size: 16px;
+  }
+
+  .score-actions {
+    flex-direction: column;
+  }
+
+  .hud {
+    top: 12px;
+    right: 12px;
+    padding: 10px 14px;
+  }
+}
+/* Unified scoreboard theme */
+.hud {
+  top: 16px;
+  right: 16px;
+  z-index: 20;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 12px;
+  background: rgba(31, 41, 55, 0.74);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.45);
+}
+
+.score-badge {
+  font-size: clamp(24px, 2.4vw, 42px);
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1;
+}
+
+.score-modal {
+  background: rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(5px);
+}
+
+.score-card {
+  width: min(92vw, 620px);
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #f8fafc, #e2e8f0);
+  color: #1e293b;
+  padding: 26px 24px;
+  box-shadow: 0 18px 48px rgba(2, 6, 23, 0.5);
+}
+
+.score-card h2,
+.score-card h3 {
+  text-align: center;
+  margin: 0;
+}
+
+.score-card h2 {
+  font-size: clamp(32px, 4.5vw, 48px);
+}
+
+.score-card h3 {
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.final-score {
+  text-align: center;
+  font-size: clamp(18px, 2.3vw, 28px);
+  margin: 8px 0 18px;
+  font-weight: 700;
+}
+
+.score-card label {
+  display: block;
+  font-size: 21px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+#playerNameInput {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #94a3b8;
+  font-size: 20px;
+  padding: 12px 14px;
+  outline: none;
+}
+
+#playerNameInput:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+.score-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.score-actions button {
+  flex: 1;
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 12px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.score-actions button.secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+  border: 1px solid #64748b;
+}
+
+.save-message {
+  min-height: 28px;
+  margin: 14px 0 12px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.score-list-wrap {
+  border-top: 1px solid #cbd5e1;
+  padding-top: 18px;
+}
+
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.score-table thead {
+  background: #1f2937;
+  color: #f8fafc;
+}
+
+.score-table th,
+.score-table td {
+  padding: 12px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.score-table tbody tr:nth-child(odd) {
+  background: #fef3c7;
+}
+
+.score-table tbody tr:nth-child(even) {
+  background: #fde68a;
+}
+
+@media (max-width: 640px) {
+  .score-card {
+    padding: 20px 16px;
+  }
+
+  .score-card label,
+  .score-actions button,
+  #playerNameInput,
+  .score-table th,
+  .score-table td {
+    font-size: 16px;
+  }
+
+  .score-actions {
+    flex-direction: column;
+  }
+
+  .hud {
+    top: 12px;
+    right: 12px;
+    padding: 10px 14px;
+  }
+}
